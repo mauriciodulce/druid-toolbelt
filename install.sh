@@ -14,6 +14,9 @@ fi
 
 echo -e "\n\n"
 
+# Install xcode
+xcode-select --install
+
 # Install Homebrew, see http://brew.sh/
 echo -e "Install Homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -35,3 +38,4 @@ brew install $PHP_TAP
 # Add custom shell stuff to ohmy
 OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
 
+echo -e "Done. Enjoy!"

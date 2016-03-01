@@ -10,7 +10,7 @@ The basic productivity tools for OSX which every Druid developer needs.
 
 Open terminal and run following command:
 ```
-sh -c "$(curl -fsSL https://thisrepo/install.sh)"
+sh -c "$(curl -fsSL https://bitbucket.org/makorh/druid-toolbelt/raw/master/install.sh)"
 ```
 
 ## Tools included
