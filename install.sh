@@ -10,9 +10,11 @@ echo $check
 str="xcode-select: note: install requested for command line developer tools"
 while [[ "$check" == "$str" ]];
 do
-  osascript -e 'tell app "System Events" to display dialog "xcode command-line tools missing." buttons "OK" default button 1 with title "xcode command-line tools"'
-  exit;
+  sleep 2
 done
+
+echo -n "xcode installed..."
+exit
 
 echo -n "Enter the PHP version you want to install (5, 7) [ENTER]: "
 read PHP_VERSION
