@@ -28,10 +28,8 @@ then
     PHP_TAP="homebrew/php/php56"
 fi
 
-echo -e "\n\n"
-
 # Install Homebrew, see http://brew.sh/
-echo -e "\n\n--- Install Homebrew ---\n\n"
+echo "\n\n--- Install Homebrew ---\n\n"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install Ansible 2
@@ -42,18 +40,16 @@ brew install ansible
 echo "\n\n--- Install PHP ---\n\n"
 brew install $PHP_TAP
 
-# Install ohmy, see: http://ohmyz.sh/
-echo "\n\n--- Install Oh My ZSH ---\n\n"
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-brew install zsh
-
 # Install Composer
-
+brew install homebrew/php/composer
 
 # Install Drush
-
+brew install homebrew/php/drush
 
 # Add custom shell stuff to ohmy
 OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
 
-echo "Done. Enjoy!"
+# Install ohmy, see: http://ohmyz.sh/
+echo "\n\n--- Install Oh My ZSH ---\n\n"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh && echo 'Done. Enjoy!')"
+#brew install zsh
