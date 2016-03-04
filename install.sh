@@ -27,11 +27,16 @@ echo "\n\n--- Install Homebrew ---\n\n"
 echo "\n\n--- Install Ansible ---\n\n"
 brew install ansible
 
-# Install PHP, Composer and Drush
+# Install PHP
 echo "\n\n--- Install PHP ---\n\n"
-brew install $PHP_TAP homebrew/php/composer homebrew/php/drush
+brew install $PHP_TAP
+
+# Install Composer and Drush
+echo "\n\n--- Install Composer and Drush ---\n\n"
+brew install $homebrew/php/composer homebrew/php/drush
 
 # Install Vagrant and VMware Fusion
+echo "\n\n--- Install Vagrant and VMware Fusion ---\n\n"
 brew cask install vagrant vmware-fusion
 
 # Add custom shell stuff to ohmy
