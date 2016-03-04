@@ -17,7 +17,9 @@ sh -c "$(curl -fsSL https://bitbucket.org/makorh/druid-toolbelt/raw/master/insta
 
 - [Homebrew](http://brew.sh/)
 - [Oh My ZSH!](http://ohmyz.sh/)
-- [Ansible]()
-- PHP
-- Composer
-- Drush
+- [Ansible 2.x]()
+- PHP 5.6.x or 7.x
+- Composer 1.x
+- Drush 8.x
+- Vagrant 1.8.x
+- VMware Fusion 8.x (You need to add license)
