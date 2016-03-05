@@ -13,7 +13,12 @@ read ANYKEY
 # Install xcode
 xcode-select --install
 
-echo "\n\Do you want to install PHP locally? [y/n]: "
+echo  "\n\nWhen Xcode installed, continue by pressing any key:"
+read ANYKEY
+
+clear
+
+echo "\n\nDo you want to install PHP locally? [y/n]: "
 read PHP_ACTIVE
 
 if [ "$PHP_ACTIVE" == "y" ]
