@@ -63,6 +63,11 @@ OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
 
 ## Install ohmy, see: http://ohmyz.sh/
 echo "\n\n--- Install Oh My ZSH ---\n\n"
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.zshrc ~/.zshrc.orig
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s /bin/zsh
 
-#osascript -e 'tell application "iTerm" to activate'
+# Open iTerm
+osascript -e 'tell application "iTerm" to activate'
