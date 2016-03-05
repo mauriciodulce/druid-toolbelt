@@ -26,9 +26,9 @@
     homebrew_cask: name={{ item }} state=present
     with_items:
     - iterm2
-    #- sequel-pro
-    #- vagrant
-    #- vmware-fusion
+    - sequel-pro
+    - vagrant
+    - vmware-fusion
     register: result
 
   - debug: var=result.stdout_lines
