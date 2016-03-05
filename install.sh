@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+clear
+
 cat << "EOF"
   ____             _     _   _              _       _          _ _
  |  _ \ _ __ _   _(_) __| | | |_ ___   ___ | |     | |__   ___| | |_
@@ -54,7 +56,7 @@ curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
 ansible-playbook -i hosts setup.yml -e "php_active=$PHP_ACTIVE php_version=$PHP_VERSION php_composer=$PHP_COMPOSER"
 
 # Remove playbook
-rm -y setup.yml
+rm -f setup.yml
 
 ## Add custom shell stuff to ohmy
 OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"

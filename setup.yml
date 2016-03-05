@@ -29,6 +29,9 @@
     - sequel-pro
     - vagrant
     - vmware-fusion
+    register: result
+
+  - debug: var=result.stdout_lines
 
   - name: Create personal file for oh-my-zsh shell
     file: path=~/.oh-my-zsh/custom/my.zsh state=touch
