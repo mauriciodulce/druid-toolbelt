@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+cat << "EOF"
+  ____             _     _   _              _       _          _ _
+ |  _ \ _ __ _   _(_) __| | | |_ ___   ___ | |     | |__   ___| | |_
+ | | | | '__| | | | |/ _` | | __/ _ \ / _ \| |_____| '_ \ / _ \ | __|
+ | |_| | |  | |_| | | (_| | | || (_) | (_) | |_____| |_) |  __/ | |_
+ |____/|_|   \__,_|_|\__,_|  \__\___/ \___/|_|     |_.__/ \___|_|\__|
+
+EOF
+
 echo "\n\n--- Install druid-toolbelt ---\n\n"
 
 # Default values for user input
@@ -38,22 +47,18 @@ echo "\n\n--- Install Homebrew ---\n\n"
 echo "\n\n--- Install Ansible ---\n\n"
 brew install ansible
 
+# Download ansible playbook
 curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
 
 # Run installer playbook
 ansible-playbook -i hosts setup.yml -e "php_active=$PHP_ACTIVE php_version=$PHP_VERSION php_composer=$PHP_COMPOSER"
 
-## Install Composer and Drush
-#echo "\n\n--- Install Composer and Drush ---\n\n"
-#brew install $homebrew/php/composer homebrew/php/drush
-#
-## Install iTerm2, Vagrant and VMware Fusion
-#echo "\n\n--- Install iTerm2, Sequel Pro, Vagrant and VMware Fusion ---\n\n"
-#brew cask install iterm2 sequel-pro vagrant vmware-fusion
-#
+# Remove playbook
+rm -y setup.yml
+
 ## Add custom shell stuff to ohmy
-#OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
-#
+OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
+
 ## Install ohmy, see: http://ohmyz.sh/
 echo "\n\n--- Install Oh My ZSH ---\n\n"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

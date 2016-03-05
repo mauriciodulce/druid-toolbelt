@@ -21,3 +21,17 @@
     with_items:
     - homebrew/php/composer
     when: php_active == "y" and php_composer == "y"
+
+  - name: Install software
+    homebrew_cask: name={{ item }} state=present
+    with_items:
+    - iterm2
+    - sequel-pro
+    - vagrant
+    - vmware-fusion
+
+  - name: Create personal file for oh-my-zsh shell
+    file: path=~/.oh-my-zsh/custom/my.zsh state=touch
+
+  - name: Create first alias
+    lineinfile: dest=~/.oh-my-zsh/custom/my.zsh regexp="^alias ohmy=" line="alias ohmy='st ~/.oh-my-zsh/custom/my.zsh'"
