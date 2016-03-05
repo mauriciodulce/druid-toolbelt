@@ -1,5 +1,3 @@
-# druid-toolbelt
-
 ```
   ____             _     _   _              _       _          _ _
  |  _ \ _ __ _   _(_) __| | | |_ ___   ___ | |     | |__   ___| | |_
@@ -10,10 +8,6 @@
 ```
 
 The basic productivity tools for OSX which every Druid developer needs.
-
-## Tested on
-
-- OSX El Capitan 10.11.3
 
 ## How to install
 
@@ -37,3 +31,14 @@ sh -c "$(curl -fsSL https://bitbucket.org/makorh/druid-toolbelt/raw/master/insta
 - PHP 5.6.x or 7.x
 - Composer
 - Drush
+
+## Tested on
+
+- OSX El Capitan 10.11.3
+
+## How to modify and test this installer?
+
+- Create virtual machine using your OSX recovery
+- Create snapshot when havin vmware tools installed
+- Open terminal
+- Test using the install command above
