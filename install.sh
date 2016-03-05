@@ -38,10 +38,6 @@ curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
 # Run installer playbook
 ansible-playbook -i hosts setup.yml -e "php_active=$PHP_ACTIVE php_version=$PHP_VERSION php_composer=$PHP_COMPOSER"
 
-## Install PHP
-#echo "\n\n--- Install PHP ---\n\n"
-#brew install $PHP_TAP
-#
 ## Install Composer and Drush
 #echo "\n\n--- Install Composer and Drush ---\n\n"
 #brew install $homebrew/php/composer homebrew/php/drush
@@ -54,7 +50,7 @@ ansible-playbook -i hosts setup.yml -e "php_active=$PHP_ACTIVE php_version=$PHP_
 #OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
 #
 ## Install ohmy, see: http://ohmyz.sh/
-#echo "\n\n--- Install Oh My ZSH ---\n\n"
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "\n\n--- Install Oh My ZSH ---\n\n"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 #osascript -e 'tell application "iTerm" to activate'
