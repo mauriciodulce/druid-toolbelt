@@ -18,18 +18,17 @@ PHP_ACTIVE="n"
 PHP_COMPOSER="n"
 PHP_VERSION="5"
 
-echo  "\n\nFirst we need to install Xcode command line tools. After you have done it, return here. Continue by pressing RETURN:"
-read ANYKEY
+read -p  "\n\nFirst we need to install Xcode command line tools. After you have done it, return here. Continue by pressing RETURN:" ANYKEY
 
 # Install xcode
 xcode-select --install
 
-echo  "\n\nWhen Xcode installed, continue by pressing RETURN:"
-read ANYKEY
+read -p  "\n\nWhen Xcode installed, continue by pressing RETURN:" ANYKEY
 
 # Install Homebrew
 echo "\n\n--- Install Homebrew ---\n\n"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
 
 # Install Ansible
 echo "\n\n--- Install Ansible ---\n\n"
@@ -48,26 +47,40 @@ brew cask install \
      vagrant \
      vmware-fusion \
 
-# Download ansible playbook
-curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
+echo "\n\n--- Optional stuff ---\n\n"
 
-echo "\n\nDo you want to install PHP locally? [y/n]: "
-read PHP_ACTIVE
+read -p "\n\nDo you want to install PHP? [y/n]: " PHP_ACTIVE
 
 if [ "$PHP_ACTIVE" == "y" ]
 then
-    echo "\n\nEnter the PHP version you want to install (5, 7) [ENTER]: "
-    read PHP_VERSION
+    read -p "\n\nEnter the PHP version you want to install (5, 7) [ENTER]: " PHP_VERSION
 
-    echo "\n\nDo you want to install Composer locally? [y/n]: "
-    read PHP_COMPOSER
+    if [ "$PHP_VERSION" == "5" ]
+    then
+        brew install homebrew/php/php56
+    fi
+
+    if [ "$PHP_VERSION" == "7" ]
+    then
+        brew install homebrew/php/php70
+    fi
+
+    read -p "\n\nDo you want to install Composer? [y/n]: " PHP_COMPOSER
+
+    if [ "$PHP_COMPOSER" == "y" ]
+    then
+        brew install homebrew/php/composer
+    fi
+
+    read -p "\n\nDo you want to install Drush? [y/n]: " PHP_DRUSH
+
+    if [ "$PHP_DRUSH" == "y" ]
+    then
+        brew install homebrew/php/drush
+    fi
 fi
 
-# Run installer playbook
-ansible-playbook -i hosts setup.yml -e "php_active=$PHP_ACTIVE php_version=$PHP_VERSION php_composer=$PHP_COMPOSER"
-
-# Remove playbook
-rm -f setup.yml
+echo "\n\n--- Install oh my zsh ---\n\n"
 
 ## Add custom shell stuff to ohmy
 OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
@@ -80,16 +93,11 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
 
-# Open applications
-osascript -e 'tell application "Caffeine" to activate'
-osascript -e 'tell application "Google Chrome" to activate'
-osascript -e 'tell application "iTerm" to activate'
-osascript -e 'tell application "PhpStorm" to activate'
-osascript -e 'tell application "Sequel Pro" to activate'
-osascript -e 'tell application "Skype" to activate'
-osascript -e 'tell application "Spectacle" to activate'
-osascript -e 'tell application "Sublime Text 2" to activate'
-osascript -e 'tell application "VMware Fusion" to activate'
+echo "\n\n--- Opening applications for the first time ---\n\n"
 
-# Close terminal
-osascript -e 'tell application "Terminal" to quit'
+# Open applications
+app_names=( "Caffeine" "Google Chrome" "iTerm" "PhpStorm" "Sequel Pro" "Skype" "Spectacle" "Sublime Text 2" "VMware Fusion")
+for app in "${app_names[@]}"
+do
+   osascript -e "tell application \"$app\" to activate"
+done
