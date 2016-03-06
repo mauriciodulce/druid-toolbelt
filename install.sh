@@ -20,8 +20,6 @@ PHP_VERSION="5"
 
 read -p  "First we need to install Xcode command line tools. After you have done it, return here. Continue by pressing ENTER:" ANYKEY
 
-exit
-
 # Install xcode
 xcode-select --install
 
