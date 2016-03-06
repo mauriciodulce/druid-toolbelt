@@ -18,13 +18,13 @@ PHP_ACTIVE="n"
 PHP_COMPOSER="n"
 PHP_VERSION="5"
 
-echo  "\n\nFirst we need to install Xcode command line tools. After you have done it, return here. Continue by pressing any key:"
+echo  "\n\nFirst we need to install Xcode command line tools. After you have done it, return here. Continue by pressing RETURN:"
 read ANYKEY
 
 # Install xcode
 xcode-select --install
 
-echo  "\n\nWhen Xcode installed, continue by pressing any key:"
+echo  "\n\nWhen Xcode installed, continue by pressing RETURN:"
 read ANYKEY
 
 # Install Homebrew
@@ -47,6 +47,8 @@ brew cask install \
      sublime-text \
      vagrant \
      vmware-fusion \
+
+exit
 
 # Download ansible playbook
 curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
