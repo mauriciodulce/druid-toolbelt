@@ -29,6 +29,20 @@ read ANYKEY
 
 clear
 
+# Install Homebrew
+echo "\n\n--- Install Homebrew ---\n\n"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install Ansible
+echo "\n\n--- Install Ansible ---\n\n"
+brew install ansible
+
+echo "\n\n--- Install software ---\n\n"
+brew cask install caffeine google-chrome iterm2 phpstorm sequel-pro skype spectacle sublime-text vagrant vmware-fusion
+
+# Download ansible playbook
+curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
+
 echo "\n\nDo you want to install PHP locally? [y/n]: "
 read PHP_ACTIVE
 
@@ -40,20 +54,6 @@ then
     echo "\n\nDo you want to install Composer locally? [y/n]: "
     read PHP_COMPOSER
 fi
-
-# Install Homebrew
-echo "\n\n--- Install Homebrew ---\n\n"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Install Ansible
-echo "\n\n--- Install Ansible ---\n\n"
-brew install ansible
-
-echo "\n\n--- Install software ---\n\n"
-brew cask install iterm2 phpstorm sequel-pro vagrant vmware-fusion
-
-# Download ansible playbook
-curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
 
 # Run installer playbook
 ansible-playbook -i hosts setup.yml -e "php_active=$PHP_ACTIVE php_version=$PHP_VERSION php_composer=$PHP_COMPOSER"
