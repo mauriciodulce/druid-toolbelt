@@ -16,12 +16,15 @@ Open terminal and run following command:
 sh -c "$(curl -fsSL https://bitbucket.org/makorh/druid-toolbelt/raw/master/install.sh)"
 ```
 
+Note: it will prompt for your password several times!
+
 ## Tools included
 
 - [Homebrew](http://brew.sh/)
 - [Oh My ZSH!](http://ohmyz.sh/)
 - [Ansible](https://www.ansible.com/)
 - [iTerm2](https://www.iterm2.com/)
+- [PhpStorm](https://www.jetbrains.com/phpstorm/)
 - [Sequel Pro](http://www.sequelpro.com/)
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Fusion](https://www.vmware.com/products/fusion) (You need to add license)

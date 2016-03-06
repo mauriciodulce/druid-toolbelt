@@ -49,6 +49,9 @@ echo "\n\n--- Install Homebrew ---\n\n"
 echo "\n\n--- Install Ansible ---\n\n"
 brew install ansible
 
+echo "\n\n--- Install software ---\n\n"
+brew cask install iterm2 phpstorm sequel-pro vagrant vmware-fusion
+
 # Download ansible playbook
 curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
 
@@ -65,9 +68,12 @@ OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
 echo "\n\n--- Install Oh My ZSH ---\n\n"
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp ~/.zshrc ~/.zshrc.orig
+#cp ~/.zshrc ~/.zshrc.orig
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
+
+# Close terminal
+osascript -e 'tell application "Terminal" to quit'
 
 # Open iTerm
 osascript -e 'tell application "iTerm" to activate'
