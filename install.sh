@@ -34,7 +34,8 @@ brew doctor
 echo "\n\n--- Install Ansible ---\n\n"
 brew install ansible
 
-echo "\n\n--- Install software ---\n\n"
+# Install applications
+echo "\n\n--- Install applications ---\n\n"
 brew cask install \
      caffeine \
      google-chrome \
