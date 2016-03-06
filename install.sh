@@ -27,8 +27,6 @@ xcode-select --install
 echo  "\n\nWhen Xcode installed, continue by pressing any key:"
 read ANYKEY
 
-clear
-
 # Install Homebrew
 echo "\n\n--- Install Homebrew ---\n\n"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -38,7 +36,17 @@ echo "\n\n--- Install Ansible ---\n\n"
 brew install ansible
 
 echo "\n\n--- Install software ---\n\n"
-brew cask install caffeine google-chrome iterm2 phpstorm sequel-pro skype spectacle sublime-text vagrant vmware-fusion
+brew cask install \
+     caffeine \
+     google-chrome \
+     iterm2 \
+     phpstorm \
+     sequel-pro \
+     skype \
+     spectacle \
+     sublime-text \
+     vagrant \
+     vmware-fusion \
 
 # Download ansible playbook
 curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
@@ -72,8 +80,16 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
 
+# Open applications
+osascript -e 'tell application "Caffeine" to activate'
+osascript -e 'tell application "Google Chrome" to activate'
+osascript -e 'tell application "iTerm" to activate'
+osascript -e 'tell application "PhpStorm" to activate'
+osascript -e 'tell application "Sequel Pro" to activate'
+osascript -e 'tell application "Skype" to activate'
+osascript -e 'tell application "Spectacle" to activate'
+osascript -e 'tell application "Sublime Text 2" to activate'
+osascript -e 'tell application "VMware Fusion" to activate'
+
 # Close terminal
 osascript -e 'tell application "Terminal" to quit'
-
-# Open iTerm
-osascript -e 'tell application "iTerm" to activate'
