@@ -18,12 +18,14 @@ PHP_ACTIVE="n"
 PHP_COMPOSER="n"
 PHP_VERSION="5"
 
-read -p  "\n\nFirst we need to install Xcode command line tools. After you have done it, return here. Continue by pressing RETURN:" ANYKEY
+read -p  "First we need to install Xcode command line tools. After you have done it, return here. Continue by pressing ENTER:" ANYKEY
+
+exit
 
 # Install xcode
 xcode-select --install
 
-read -p  "\n\nWhen Xcode installed, continue by pressing RETURN:" ANYKEY
+read -p  "When Xcode installed, continue by pressing ENTER:" ANYKEY
 
 # Install Homebrew
 echo "\n\n--- Install Homebrew ---\n\n"
@@ -50,11 +52,11 @@ brew cask install \
 
 echo "\n\n--- Optional stuff ---\n\n"
 
-read -p "\n\nDo you want to install PHP? [y/n]: " PHP_ACTIVE
+read -p "Do you want to install PHP? [y/n]: " PHP_ACTIVE
 
 if [ "$PHP_ACTIVE" == "y" ]
 then
-    read -p "\n\nEnter the PHP version you want to install (5, 7) [ENTER]: " PHP_VERSION
+    read -p "Enter the PHP version you want to install (5, 7) [ENTER]: " PHP_VERSION
 
     if [ "$PHP_VERSION" == "5" ]
     then
@@ -66,14 +68,14 @@ then
         brew install homebrew/php/php70
     fi
 
-    read -p "\n\nDo you want to install Composer? [y/n]: " PHP_COMPOSER
+    read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
 
     if [ "$PHP_COMPOSER" == "y" ]
     then
         brew install homebrew/php/composer
     fi
 
-    read -p "\n\nDo you want to install Drush? [y/n]: " PHP_DRUSH
+    read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
 
     if [ "$PHP_DRUSH" == "y" ]
     then
