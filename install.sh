@@ -48,8 +48,6 @@ brew cask install \
      vagrant \
      vmware-fusion \
 
-exit
-
 # Download ansible playbook
 curl -O https://bitbucket.org/makorh/druid-toolbelt/raw/master/setup.yml
 
