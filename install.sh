@@ -1,49 +1,45 @@
 #!/bin/bash
 
-FOO=( a b c )
+CASK_APPLICATIONS=(
+    "caffeine"
+    "google-chrome"
+    "iterm2"
+    "phpstorm"
+    "sequel-pro"
+    "skype"
+    "spectacle"
+    "sublime-text"
+    "vagrant"
+    "vmware-fusion"
+)
+
+OPEN_APPLICATIONS=(
+    "Caffeine"
+    "Google Chrome"
+    "iTerm"
+    "PhpStorm"
+    "Sequel Pro"
+    "Skype"
+    "Spectacle"
+    "Sublime Text 2"
+    "VMware Fusion"
+)
 
 main () {
     clear
 
     ascii
 
-    #brew search join " " "${FOO[@]}"
-    #exit
+    printSectionTitle "Install druid-toolbelt"
 
-#    if promptYesNo "is the sky blue?"; then
-#        echo "yes"
-#    else
-#        echo "no"
-#    fi
-#
-#    exit
-
-    echo "\n\n--- Install druid-toolbelt ---\n\n"
-
+    # Install Xcode
     installXcode
 
     # Install Homebrew
-    echo "\n\n--- Install Homebrew ---\n\n"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew doctor
-
-    # Install Ansible
-    echo "\n\n--- Install Ansible ---\n\n"
-    brew install ansible
+    installHomebrew
 
     # Install applications
-    echo "\n\n--- Install applications ---\n\n"
-    brew cask install \
-         caffeine \
-         google-chrome \
-         iterm2 \
-         phpstorm \
-         sequel-pro \
-         skype \
-         spectacle \
-         sublime-text \
-         vagrant \
-         vmware-fusion \
+    installApplications
 
     # Install PHP, Composer and Drush (optional)
     installOptionalPHP
@@ -54,7 +50,7 @@ main () {
     # Open applications for the first time so user can login, register, setup etc.
     openApplications
 
-    exit
+    exit 0
 }
 
 ascii () {
@@ -66,23 +62,41 @@ ____             _     _   _              _  _          _ _
 |____/|_|   \__,_|_|\__,_|  \__\___/ \___/|_||_.__/ \___|_|\__|
 
 EOF
+exit
+}
+
+installApplications () {
+    # Install Ansible
+    printSectionTitle "Install Ansible"
+    brew install ansible
+
+    # Install Casks
+    printSectionTitle "Install applications"
+    cmd="brew cask install ${CASK_APPLICATIONS[*]}"
+    $cmd
+}
+
+installHomebrew () {
+    printSectionTitle "Install Homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
 }
 
 installOhMy () {
-    echo "\n\n--- Install oh my zsh ---\n\n"
+    printSectionTitle "Install oh my zsh"
 
     ## Add custom shell stuff to ohmy
-    OHMY_CUSTOM="~/.oh-my-zsh/custom/my.zsh"
+    #OHMY_CUSTOM="$HOME/.oh-my-zsh/custom/my.zsh"
 
     #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
     #cp ~/.zshrc ~/.zshrc.orig
-    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+    cp "$HOME/.oh-my-zsh/templates/zshrc.zsh-template" "$HOME/.zshrc"
     chsh -s /bin/zsh
 }
 
 installOptionalPHP () {
-    echo "\n\n--- Optional stuff ---\n\n"
+    printSectionTitle "Optional stuff"
 
     read -p "Do you want to install PHP? [y/n]: " PHP_ACTIVE
 
@@ -115,27 +129,26 @@ installOptionalPHP () {
 }
 
 installXcode () {
-    read -p  "First we need to install Xcode command line tools. After you have done it, return here. Continue by pressing ENTER:" ANYKEY
+    read -p "First we need to install Xcode command line tools. After you have done it, return here. Continue by pressing ENTER:" ANYKEY
 
     # Install xcode
     xcode-select --install
 
-    read -p  "When Xcode installed, continue by pressing ENTER:" ANYKEY
-}
-
-function join {
-    local IFS="$1"; shift; echo "$*";
+    read -p "When Xcode installed, continue by pressing ENTER:" ANYKEY
 }
 
 openApplications () {
-    echo "\n\n--- Opening applications for the first time ---\n\n"
+    printSectionTitle "Opening applications for the first time"
 
     # Open applications
-    app_names=( "Caffeine" "Google Chrome" "iTerm" "PhpStorm" "Sequel Pro" "Skype" "Spectacle" "Sublime Text 2" "VMware Fusion")
-    for app in "${app_names[@]}"
+    for app in "${OPEN_APPLICATIONS[@]}"
     do
        osascript -e "tell application \"$app\" to activate"
     done
+}
+
+printSectionTitle () {
+    printf "\n\n--- %s ---\n\n" "$1"
 }
 
 promptYesNo () {
