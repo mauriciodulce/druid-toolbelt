@@ -89,6 +89,8 @@ installOptionalPHP () {
     if [ "$PHP_ACTIVE" == "y" ]
     then
         read -p "Enter the PHP version you want to install (5, 7) [ENTER]: " PHP_VERSION
+        read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
+        read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
 
         if [ "$PHP_VERSION" == "5" ]
         then
@@ -100,14 +102,10 @@ installOptionalPHP () {
             brew install homebrew/php/php70
         fi
 
-        read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
-
         if [ "$PHP_COMPOSER" == "y" ]
         then
             brew install homebrew/php/composer
         fi
-
-        read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
 
         if [ "$PHP_DRUSH" == "y" ]
         then

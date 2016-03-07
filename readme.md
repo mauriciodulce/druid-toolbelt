@@ -20,12 +20,16 @@ Note: it will prompt for your password several times!
 
 ## Tools included
 
+- [Ansible](https://www.ansible.com/)
+- [Caffeine](http://lightheadsw.com/caffeine/)
+- [iTerm2](https://www.iterm2.com/)
 - [Homebrew](http://brew.sh/)
 - [Oh My ZSH!](http://ohmyz.sh/)
-- [Ansible](https://www.ansible.com/)
-- [iTerm2](https://www.iterm2.com/)
 - [PhpStorm](https://www.jetbrains.com/phpstorm/) (You need to login with your credentials)
 - [Sequel Pro](http://www.sequelpro.com/)
+- [Skype](https://www.skype.com/)
+- [Sublime Text](https://www.sublimetext.com/)
+- [Spectacle](https://www.spectacleapp.com/)
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Fusion](https://www.vmware.com/products/fusion) (You need to add license)
 
