@@ -73,6 +73,9 @@ installApplications () {
     printSectionTitle "Install applications"
     cmd="brew cask install ${CASK_APPLICATIONS[*]}"
     $cmd
+
+    # Install extras
+    vagrant plugin install vagrant-vmware-fusion
 }
 
 installHomebrew () {
