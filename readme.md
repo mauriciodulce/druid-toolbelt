@@ -9,6 +9,17 @@
 
 The basic productivity tools for OSX which every Druid developer needs.
 
+## Requirements
+
+Before install:
+
+- If you have SSH keys, make sure they are present in `~/.ssh`
+
+After install:
+
+- VMware Fusion serial (from jussi.lindfors@druid.fi)
+- VMware Vagrant Plugin license (from jussi.lindfors@druid.fi)
+
 ## How to install
 
 Open terminal and run following command:
