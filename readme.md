@@ -24,7 +24,7 @@ After install:
 
 Open terminal and run following command:
 ```
-sh -c "$(curl -fsSL https://bitbucket.org/makorh/druid-toolbelt/raw/master/install.sh)"
+sh -c "$(curl -fsSL https://github.com/druidfi/druid-toolbelt/raw/master/install.sh)"
 ```
 
 Note: it will prompt for your password several times!
