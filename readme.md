@@ -11,14 +11,12 @@ The basic productivity tools for OSX which every Druid developer needs.
 
 ## Requirements
 
-Before install:
-
-- If you have SSH keys, make sure they are present in `~/.ssh`
+- OSX
 
 After install:
 
-- VMware Fusion serial (from jussi.lindfors@druid.fi)
-- VMware Vagrant Plugin license (from jussi.lindfors@druid.fi)
+- VMware Fusion serial
+- VMware Vagrant Plugin license
 
 ## How to install
 
@@ -52,11 +50,21 @@ Note: it will prompt for your password several times!
 
 ## Tested on
 
-- OSX El Capitan 10.11.3
+- OSX El Capitan 10.11.x
+
+## FAQ
+
+Q: Why not use Ansible?
+
+A: We did not want to have any additional steps before running this script. It's a one-liner!
 
 ## How to modify and test this installer?
 
 - Create virtual machine using your OSX recovery
-- Create snapshot when havin vmware tools installed
+- Create snapshot when having vmware tools installed
 - Open terminal
 - Test using the install command above
+
+## Fork and create your own version?
+
+Yes, go ahead! If you use it, please send us a message so we can add you to "Used by" list in the future.
