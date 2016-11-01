@@ -108,10 +108,7 @@ installPHPandTools () {
     chmod +x composer.phar
     mv composer.phar /usr/local/bin/composer
 
-    php -r "readfile('https://s3.amazonaws.com/files.drush.org/drush.phar');" > drush
-    php drush core-status
-    chmod +x drush
-    mv drush /usr/local/bin
+    composer global require drush/drush
 }
 
 installXcode () {
