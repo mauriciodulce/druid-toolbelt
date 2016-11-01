@@ -41,8 +41,8 @@ main () {
     # Install applications
     installApplications
 
-    # Install PHP, Composer and Drush (optional)
-    installOptionalPHP
+    # Install PHP, Composer and Drush
+    installPHPandTools
 
     # Install oh my zsh
     installOhMy
@@ -97,28 +97,34 @@ installOhMy () {
     chsh -s /bin/zsh
 }
 
-installOptionalPHP () {
-    printSectionTitle "Optional stuff"
+installPHPandTools () {
+    printSectionTitle "PHP and tools"
 
-    read -p "Do you want to install PHP? [y/n]: " PHP_ACTIVE
+#    read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
+#    read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
 
-    if [ "$PHP_ACTIVE" == "y" ]
-    then
-        read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
-        read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
+    brew install homebrew/php/php70
 
-        brew install homebrew/php/php70
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
+    chmod +x composer.phar
+    mv composer.phar /usr/local/bin/composer
 
-        if [ "$PHP_COMPOSER" == "y" ]
-        then
-            brew install homebrew/php/composer
-        fi
+    php -r "readfile('https://s3.amazonaws.com/files.drush.org/drush.phar');" > drush
+    php drush core-status
+    chmod +x drush
+    mv drush /usr/local/bin
 
-        if [ "$PHP_DRUSH" == "y" ]
-        then
-            brew install homebrew/php/drush
-        fi
-    fi
+#    if [ "$PHP_COMPOSER" == "y" ]
+#    then
+#        brew install homebrew/php/composer
+#    fi
+
+#    if [ "$PHP_DRUSH" == "y" ]
+#    then
+#        brew install homebrew/php/drush
+#    fi
 }
 
 installXcode () {
