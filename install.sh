@@ -21,7 +21,7 @@ OPEN_APPLICATIONS=(
     "Sequel Pro"
     "Skype"
     "Spectacle"
-    "Sublime Text 2"
+    #"Sublime Text 2"
     "VMware Fusion"
 )
 
@@ -104,19 +104,10 @@ installOptionalPHP () {
 
     if [ "$PHP_ACTIVE" == "y" ]
     then
-        read -p "Enter the PHP version you want to install (5, 7) [ENTER]: " PHP_VERSION
         read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
         read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
 
-        if [ "$PHP_VERSION" == "5" ]
-        then
-            brew install homebrew/php/php56
-        fi
-
-        if [ "$PHP_VERSION" == "7" ]
-        then
-            brew install homebrew/php/php70
-        fi
+        brew install homebrew/php/php70
 
         if [ "$PHP_COMPOSER" == "y" ]
         then
