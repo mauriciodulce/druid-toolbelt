@@ -100,9 +100,6 @@ installOhMy () {
 installPHPandTools () {
     printSectionTitle "PHP and tools"
 
-#    read -p "Do you want to install Composer? [y/n]: " PHP_COMPOSER
-#    read -p "Do you want to install Drush? [y/n]: " PHP_DRUSH
-
     brew install homebrew/php/php70
 
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -115,16 +112,6 @@ installPHPandTools () {
     php drush core-status
     chmod +x drush
     mv drush /usr/local/bin
-
-#    if [ "$PHP_COMPOSER" == "y" ]
-#    then
-#        brew install homebrew/php/composer
-#    fi
-
-#    if [ "$PHP_DRUSH" == "y" ]
-#    then
-#        brew install homebrew/php/drush
-#    fi
 }
 
 installXcode () {
