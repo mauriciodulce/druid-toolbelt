@@ -11,7 +11,7 @@ The basic productivity tools for OSX which every Druid developer needs.
 
 ## Requirements
 
-- OSX
+- OSX / macOS
 
 After install:
 
@@ -44,13 +44,14 @@ Note: it will prompt for your password several times!
 
 ## Optional
 
-- PHP 5.6.x or 7.x
+- PHP 7.x
 - Composer
 - Drush
 
 ## Tested on
 
 - OSX El Capitan 10.11.x
+- macOS Sierra 10.12.x
 
 ## FAQ
 
