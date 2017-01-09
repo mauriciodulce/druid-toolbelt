@@ -42,9 +42,9 @@ Note: it will prompt for your password several times!
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Fusion](https://www.vmware.com/products/fusion) (You need to add license)
 
-## Optional
+## Development software
 
-- PHP 7.x
+- PHP 7.1
 - Composer
 - Drush
 
