@@ -48,7 +48,7 @@ main () {
     installOhMy
 
     # Open applications for the first time so user can login, register, setup etc.
-    openApplications
+    #openApplications
 
     exit 0
 }
