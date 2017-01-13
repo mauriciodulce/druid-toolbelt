@@ -7,6 +7,8 @@
 
 ```
 
+[![Build Status](https://travis-ci.org/druidfi/druid-toolbelt.svg?branch=master)](https://travis-ci.org/druidfi/druid-toolbelt)
+
 The basic productivity tools for OSX which every Druid developer needs.
 
 ## Requirements
