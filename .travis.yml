@@ -1,9 +1,9 @@
 os: osx
 
-language: objective-c
+language: bash
 
 before_script:
   - brew update
 
 script:
-  - test.sh
+  - bash test.sh
