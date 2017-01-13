@@ -30,9 +30,9 @@ Note: it will prompt for your password several times!
 ## Tools included
 
 - [Ansible](https://www.ansible.com/)
-- [Caffeine](http://lightheadsw.com/caffeine/)
 - [iTerm2](https://www.iterm2.com/)
 - [Homebrew](http://brew.sh/)
+- [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake)
 - [Oh My ZSH!](http://ohmyz.sh/)
 - [PhpStorm](https://www.jetbrains.com/phpstorm/) (You need to login with your credentials)
 - [Sequel Pro](http://www.sequelpro.com/)
