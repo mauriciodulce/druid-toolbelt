@@ -1,9 +1,9 @@
 #!/bin/bash
 
 CASK_APPLICATIONS=(
-    "caffeine"
     "google-chrome"
     "iterm2"
+    "keepingyouawake"
     "phpstorm"
     "sequel-pro"
     "skype"
@@ -14,9 +14,9 @@ CASK_APPLICATIONS=(
 )
 
 OPEN_APPLICATIONS=(
-    "Caffeine"
     "Google Chrome"
     "iTerm"
+    "KeepingYouAwake"
     "PhpStorm"
     "Sequel Pro"
     "Skype"
