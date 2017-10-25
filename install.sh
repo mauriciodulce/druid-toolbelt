@@ -79,7 +79,9 @@ installApplications () {
     $cmd
 
     # Install extras
+    printSectionTitle "Install Vagrant plugins"
     vagrant plugin install vagrant-vmware-fusion
+    vagrant plugin install vagrant-hostsupdater
 }
 
 installHomebrew () {
