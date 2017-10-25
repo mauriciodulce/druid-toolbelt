@@ -65,6 +65,10 @@ installApplications () {
     printSectionTitle "Install Ansible"
     brew install ansible
 
+    # Install Docker
+    printSectionTitle "Install Docker"
+    brew install docker docker-compose docker-machine
+
     # Install Casks
     printSectionTitle "Install applications"
     cmd="brew cask install ${CASK_APPLICATIONS[*]}"
