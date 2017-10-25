@@ -6,4 +6,4 @@ before_script:
   - brew update
 
 script:
-  - bash test.sh
+  - bash install.sh
