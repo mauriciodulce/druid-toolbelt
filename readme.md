@@ -38,7 +38,6 @@ Note: it will prompt for your password several times!
 - [Oh My ZSH!](http://ohmyz.sh/)
 - [PhpStorm](https://www.jetbrains.com/phpstorm/) (You need to login with your credentials)
 - [Sequel Pro](http://www.sequelpro.com/)
-- [Skype](https://www.skype.com/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [Spectacle](https://www.spectacleapp.com/)
 - [Vagrant](https://www.vagrantup.com/)
