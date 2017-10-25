@@ -65,6 +65,10 @@ installApplications () {
     printSectionTitle "Install Ansible"
     brew install ansible
 
+    # Install Ruby (this will make it possible to install gems without sudo)
+    printSectionTitle "Install Ruby"
+    brew install ruby
+
     # Install Docker
     printSectionTitle "Install Docker"
     brew install docker docker-compose docker-machine
