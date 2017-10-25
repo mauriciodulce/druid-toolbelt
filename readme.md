@@ -32,6 +32,7 @@ Note: it will prompt for your password several times!
 ## Tools included
 
 - [Ansible](https://www.ansible.com/)
+- [Docker](https://www.docker.com/)
 - [iTerm2](https://www.iterm2.com/)
 - [Homebrew](http://brew.sh/)
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake)
@@ -43,7 +44,7 @@ Note: it will prompt for your password several times!
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Fusion](https://www.vmware.com/products/fusion) (You need to add license)
 
-## Development software
+## PHP software
 
 - PHP 7.1
 - Composer
