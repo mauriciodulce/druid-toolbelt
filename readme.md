@@ -32,7 +32,6 @@ Note: it will prompt for your password several times!
 ## Tools included
 
 - [Ansible](https://www.ansible.com/)
-- [Docker](https://www.docker.com/)
 - [iTerm2](https://www.iterm2.com/)
 - [Homebrew](http://brew.sh/)
 - [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake)
