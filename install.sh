@@ -45,7 +45,11 @@ main () {
     # installApplications
 
     # Install oh my zsh
-    installOhMy
+    if [[ $TRAVIS ]]; then
+        echo "Skipping Oh My Zsh installation in Travis."
+     else
+        installOhMy
+    fi
 
     # Open applications for the first time so user can login, register, setup etc.
     # openApplications
