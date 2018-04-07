@@ -26,8 +26,6 @@ main () {
 
     ascii
 
-    printSectionTitle "Install druid-toolbelt"
-
     # Install Homebrew
     installHomebrew
 
