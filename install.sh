@@ -26,14 +26,23 @@ main () {
 
     ascii
 
+    if [ "$(uname)" == "Darwin" ]; then
+        echo "$(uname) detected..."
+    else
+        exit 1
+    fi
+
     # Install Homebrew
     installHomebrew
 
+    # Brew some software
+    brew install ansible ruby php
+
+    # Install Composer and Drush
+    installPhpTools
+
     # Install applications
     installApplications
-
-    # Install PHP, Composer and Drush
-    installPHPandTools
 
     # Install oh my zsh
     # installOhMy
@@ -56,13 +65,6 @@ EOF
 }
 
 installApplications () {
-    # Install Ansible
-    printSectionTitle "Install Ansible"
-    brew install ansible
-
-    # Install Ruby (this will make it possible to install gems without sudo)
-    printSectionTitle "Install Ruby"
-    brew install ruby
 
     # Install Casks
     printSectionTitle "Install applications"
@@ -94,10 +96,8 @@ installOhMy () {
     chsh -s /bin/zsh
 }
 
-installPHPandTools () {
-    printSectionTitle "PHP and tools"
-
-    brew install php
+installPhpTools () {
+    printSectionTitle "PHP tools"
 
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     php composer-setup.php
@@ -105,7 +105,7 @@ installPHPandTools () {
     chmod +x composer.phar
     mv composer.phar /usr/local/bin/composer
 
-    composer global require drush/drush
+    composer global require drush/drush:8.1.16
 }
 
 openApplications () {
