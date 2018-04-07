@@ -36,7 +36,7 @@ main () {
     installPHPandTools
 
     # Install oh my zsh
-    installOhMy
+    # installOhMy
 
     # Open applications for the first time so user can login, register, setup etc.
     openApplications
