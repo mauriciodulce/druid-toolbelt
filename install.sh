@@ -28,9 +28,6 @@ main () {
 
     printSectionTitle "Install druid-toolbelt"
 
-    # Install Xcode
-    installXcode
-
     # Install Homebrew
     installHomebrew
 
@@ -111,15 +108,6 @@ installPHPandTools () {
     mv composer.phar /usr/local/bin/composer
 
     composer global require drush/drush
-}
-
-installXcode () {
-    read -p "First we need to install Xcode command line tools. After you have done it, return here. Continue by pressing ENTER:" ANYKEY
-
-    # Install xcode
-    xcode-select --install
-
-    read -p "When Xcode installed, continue by pressing ENTER:" ANYKEY
 }
 
 openApplications () {
