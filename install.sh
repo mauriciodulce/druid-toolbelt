@@ -26,11 +26,6 @@ main () {
 
     ascii
 
-    printSectionTitle "Install druid-toolbelt"
-
-    # Install Xcode
-    installXcode
-
     # Install Homebrew
     installHomebrew
 
@@ -41,7 +36,7 @@ main () {
     installPHPandTools
 
     # Install oh my zsh
-    installOhMy
+    # installOhMy
 
     # Open applications for the first time so user can login, register, setup etc.
     openApplications
@@ -65,13 +60,19 @@ installApplications () {
     printSectionTitle "Install Ansible"
     brew install ansible
 
+    # Install Ruby (this will make it possible to install gems without sudo)
+    printSectionTitle "Install Ruby"
+    brew install ruby
+
     # Install Casks
     printSectionTitle "Install applications"
     cmd="brew cask install ${CASK_APPLICATIONS[*]}"
     $cmd
 
     # Install extras
+    printSectionTitle "Install Vagrant plugins"
     vagrant plugin install vagrant-vmware-fusion
+    vagrant plugin install vagrant-hostsupdater
 }
 
 installHomebrew () {
@@ -105,15 +106,6 @@ installPHPandTools () {
     mv composer.phar /usr/local/bin/composer
 
     composer global require drush/drush
-}
-
-installXcode () {
-    read -p "First we need to install Xcode command line tools. After you have done it, return here. Continue by pressing ENTER:" ANYKEY
-
-    # Install xcode
-    xcode-select --install
-
-    read -p "When Xcode installed, continue by pressing ENTER:" ANYKEY
 }
 
 openApplications () {

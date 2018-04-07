@@ -43,7 +43,7 @@ Note: it will prompt for your password several times!
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Fusion](https://www.vmware.com/products/fusion) (You need to add license)
 
-## Development software
+## PHP software
 
 - PHP 7.2
 - Composer
