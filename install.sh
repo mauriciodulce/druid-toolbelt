@@ -33,22 +33,22 @@ main () {
     fi
 
     # Install Homebrew
-    installHomebrew
+    # installHomebrew
 
     # Brew some software
-    brew install ansible ruby php
+    # brew install ansible ruby php
 
     # Install Composer and Drush
-    installPhpTools
+    # installPhpTools
 
     # Install applications
-    installApplications
+    # installApplications
 
     # Install oh my zsh
-    # installOhMy
+    installOhMy
 
     # Open applications for the first time so user can login, register, setup etc.
-    openApplications
+    # openApplications
 
     exit 0
 }
@@ -91,7 +91,6 @@ installOhMy () {
 
     #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
-    #cp ~/.zshrc ~/.zshrc.orig
     cp "$HOME/.oh-my-zsh/templates/zshrc.zsh-template" "$HOME/.zshrc"
     chsh -s /bin/zsh
 }
