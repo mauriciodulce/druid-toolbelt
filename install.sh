@@ -106,7 +106,7 @@ installOhMy () {
 installPHPandTools () {
     printSectionTitle "PHP and tools"
 
-    brew install homebrew/php/php71
+    brew install php
 
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     php composer-setup.php

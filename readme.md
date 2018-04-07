@@ -46,7 +46,7 @@ Note: it will prompt for your password several times!
 
 ## PHP software
 
-- PHP 7.1
+- PHP 7.2
 - Composer
 - Drush
 
