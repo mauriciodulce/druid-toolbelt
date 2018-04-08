@@ -33,16 +33,16 @@ main () {
     fi
 
     # Install Homebrew
-    # installHomebrew
+    installHomebrew
 
     # Brew some software
-    # brew install ansible ruby php
+    brew install ansible ruby php
 
     # Install Composer and Drush
-    # installPhpTools
+    installPhpTools
 
     # Install applications
-    # installApplications
+    installApplications
 
     # Install oh my zsh
     if [[ $TRAVIS ]]; then
@@ -52,7 +52,7 @@ main () {
     fi
 
     # Open applications for the first time so user can login, register, setup etc.
-    # openApplications
+    openApplications
 
     exit 0
 }
@@ -69,7 +69,6 @@ EOF
 }
 
 installApplications () {
-
     # Install Casks
     printSectionTitle "Install applications"
     cmd="brew cask install ${CASK_APPLICATIONS[*]}"
@@ -77,12 +76,14 @@ installApplications () {
 
     # Install extras
     printSectionTitle "Install Vagrant plugins"
+
     vagrant plugin install vagrant-vmware-fusion
     vagrant plugin install vagrant-hostsupdater
 }
 
 installHomebrew () {
     printSectionTitle "Install Homebrew"
+
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew doctor
 }
