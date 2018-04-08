@@ -9,6 +9,7 @@ CASK_APPLICATIONS=(
     "sublime-text"
     "vagrant"
     "vmware-fusion"
+    "vyprvpn"
 )
 
 OPEN_APPLICATIONS=(
