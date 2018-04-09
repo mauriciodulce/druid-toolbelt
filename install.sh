@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CASK_APPLICATIONS=(
+    "docker"
     "iterm2"
     "keepingyouawake"
     "phpstorm"
@@ -9,6 +10,7 @@ CASK_APPLICATIONS=(
     "sublime-text"
     "vagrant"
     "vmware-fusion"
+    "vyprvpn"
 )
 
 OPEN_APPLICATIONS=(
@@ -38,6 +40,9 @@ main () {
     # Brew some software
     brew install ansible ruby php
 
+    # Install gems
+    gem install pygmy
+
     # Install Composer and Drush
     installPhpTools
 
@@ -45,7 +50,11 @@ main () {
     installApplications
 
     # Install oh my zsh
-    # installOhMy
+    if [[ $TRAVIS ]]; then
+        echo "Skipping Oh My Zsh installation in Travis."
+     else
+        installOhMy
+    fi
 
     # Open applications for the first time so user can login, register, setup etc.
     openApplications
@@ -65,7 +74,6 @@ EOF
 }
 
 installApplications () {
-
     # Install Casks
     printSectionTitle "Install applications"
     cmd="brew cask install ${CASK_APPLICATIONS[*]}"
@@ -73,12 +81,14 @@ installApplications () {
 
     # Install extras
     printSectionTitle "Install Vagrant plugins"
+
     vagrant plugin install vagrant-vmware-fusion
     vagrant plugin install vagrant-hostsupdater
 }
 
 installHomebrew () {
     printSectionTitle "Install Homebrew"
+
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew doctor
 }
@@ -86,14 +96,10 @@ installHomebrew () {
 installOhMy () {
     printSectionTitle "Install oh my zsh"
 
-    ## Add custom shell stuff to ohmy
-    #OHMY_CUSTOM="$HOME/.oh-my-zsh/custom/my.zsh"
-
-    #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
-    #cp ~/.zshrc ~/.zshrc.orig
-    cp "$HOME/.oh-my-zsh/templates/zshrc.zsh-template" "$HOME/.zshrc"
-    chsh -s /bin/zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    #git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+    #cp "$HOME/.oh-my-zsh/templates/zshrc.zsh-template" "$HOME/.zshrc"
+    #chsh -s /bin/zsh
 }
 
 installPhpTools () {
@@ -105,7 +111,9 @@ installPhpTools () {
     chmod +x composer.phar
     mv composer.phar /usr/local/bin/composer
 
-    composer global require drush/drush:8.1.16
+    curl -O -L https://github.com/drush-ops/drush/releases/download/8.1.16/drush.phar
+    chmod +x drush.phar
+    mv composer.phar /usr/local/bin/drush
 }
 
 openApplications () {

@@ -3,7 +3,7 @@ os: osx
 language: bash
 
 before_script:
-  - brew update
+  #- brew update
 
 script:
   - bash install.sh

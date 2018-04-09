@@ -23,8 +23,9 @@ After install:
 ## How to install
 
 Open terminal and run following command:
+
 ```
-sh -c "$(curl -fsSL https://github.com/druidfi/druid-toolbelt/raw/master/install.sh)"
+$ sh -c "$(curl -fsSL https://github.com/druidfi/druid-toolbelt/raw/master/install.sh)"
 ```
 
 Note: it will prompt for your password several times!
@@ -42,6 +43,7 @@ Note: it will prompt for your password several times!
 - [Spectacle](https://www.spectacleapp.com/)
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Fusion](https://www.vmware.com/products/fusion) (You need to add license)
+- [VyprVPN](https://www.goldenfrog.com/vyprvpn)
 
 ## PHP software
 
@@ -66,6 +68,12 @@ A: We did not want to have any additional steps before running this script. It's
 - Create snapshot when having vmware tools installed
 - Open terminal
 - Test using the install command above
+
+Test with some branch:
+
+```
+$ sh -c "$(curl -fsSL https://github.com/druidfi/druid-toolbelt/raw/BRANCH/install.sh)"
+```
 
 ## Fork and create your own version?
 
