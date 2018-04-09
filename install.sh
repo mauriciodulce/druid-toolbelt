@@ -107,7 +107,9 @@ installPhpTools () {
     chmod +x composer.phar
     mv composer.phar /usr/local/bin/composer
 
-    composer global require drush/drush:8.1.16
+    curl -O -L https://github.com/drush-ops/drush/releases/download/8.1.16/drush.phar
+    chmod +x drush.phar
+    mv composer.phar /usr/local/bin/drush
 }
 
 openApplications () {
