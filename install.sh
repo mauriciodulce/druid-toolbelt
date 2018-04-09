@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CASK_APPLICATIONS=(
+    "docker"
     "iterm2"
     "keepingyouawake"
     "phpstorm"
@@ -38,6 +39,9 @@ main () {
 
     # Brew some software
     brew install ansible ruby php
+
+    # Install gems
+    gem install pygmy
 
     # Install Composer and Drush
     installPhpTools
